@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar and Carousel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Josefin Sans", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .navbar {
+        background-color: #0e0d0d83;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+        height: 50px;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+      @media (max-width:950px) {
+        li {
+          display: none;
+        }
+      }
+     
+      .manu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .manu li {
+        list-style: none;
+        margin: 0 20px;
+        background-color: white;
+        border: 1.5px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 0 2px white;
+      }
+      li:hover {
+        animation: 0.5s ease;
+        transform: scale(1.1);
+        border-bottom: 2px solid white;
+        box-shadow: 0 5px 10px white;
+        background-color: rgb(204, 199, 191);
+      }
+      a {
+        text-decoration: none;
+        color:rgb(165, 0, 0);
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .logo {
+        border: 3px solid transparent;
+        border-radius: 10px;
+        animation: logo 1.5s ease-in infinite;
+        padding: 5px;
+        color: black;
+        text-shadow: 2px 2px 1px white;
+        font-size: 2.3rem;
+      }
+      .Home-img {
+        margin-top: -5rem;
+       
+        width: 100%;
+        height: 55.25rem;
+        animation: image 15.5s ease-in infinite;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      @keyframes image {
+        0% {
+          background-image: url("cities6.jpg");
+        }
+        25% {
+          background-image: url("travelingFirst.jpg");
+        }
+        50% {
+          background-image: url("traveling3.jpg");
+        }
+        75% {
+          background-image: url("travelingS.jpg");
+        }
+        100% {
+          background-image: url("traveling5.jpg");
+        }
+      }
+
+      @keyframes logo {
+        10% {
+          border-top: 3px solid rgb(255, 254, 254);
+        }
+        25% {
+          border-bottom: 3px solid rgb(184, 147, 93);
+        }
+        50% {
+          border-left: 3px solid rgb(67, 185, 67);
+        }
+        100% {
+          border-right: 3px solid rgb(155, 107, 90);
+        }
+      }
+
+      #img-c {
+        height: 43rem;
+        width: 89rem;
+      }
+     
+      .card-containar{
+        padding: 3rem;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap:3rem;
+        justify-content: space-between;
+        align-items: center;
+      }
+      @media (max-width:780px){
+        .card-containar{
+          grid-template-columns: repeat(2,1fr);
+        }
+      }
+      @media (max-width:440px){
+        .card-containar{
+          grid-template-columns: repeat(1,1fr);
+        }
+      }
+
+      .card-element {
+        display: flex;
+        background-color: rgb(224, 218, 218);
+        flex-direction: column;
+        align-items: center;
+        width: 17rem;
+        border: 1px solid rgb(146, 137, 137);
+        border-radius: 10px;
+
+        padding: 10px;
+        cursor: pointer;
+      }
+      .card-element:hover {
+        transition: 0.3s ease-in-out;
+        transform: scale(1.05);
+
+        box-shadow: 0 0 40px rgba(250, 253, 251, 0.103);
+      }
+      .card-img {
+        width: 95%;
+        box-sizing: border-box;
+      }
+      .card-p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 200px;
+      }
+
+      .heading-top {
+        color: white;
+        text-shadow: 5px 5px 5px black;
+        position: absolute;
+        top: 30%;
+        left: 27%;
+        font-size: 4rem;
+        z-index: 1;
+      }
+      .review {
+        height: 30px;
+        width: 100%;
+      }
+
+      .img-review {
+        height: 30px;
+        width: 100px;
+      }
+      h2 {
+        margin-top: 1rem;
+      }
+      .ticket-box {
+        background-color:whitesmoke;
+        height: 49rem;
+      }
+      .T-headline {
+        color: red;
+        font-size: 2.3rem;
+        text-align: center;
+        margin-top: 5rem;
+      }
+      .T-containar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Ticket css from Github */
+
+      #T-car {
+        position: absolute;
+        width: 20%;
+        right: 5%;
+        filter: drop-shadow(5px 5px 2px black);
+      }
+      .container {
+        width: 450px;
+        margin: 50px auto;
+        background-color:rgb(168, 159, 159);
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: black;
+      }
+
+      input,
+      select,
+      button {
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+      }
+      input:active{
+        transition: ease 0.1s;
+        transform: scale(1.03);
+      }
+      button:active{
+        transition: ease 0.1s;
+        transform: scale(1.03);
+      }
+
+      button {
+        background-color: #28a745;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      .confirmation {
+        text-align: center;
+        margin-top: 20px;
+        padding: 15px;
+        border: 2px double black;
+        color: black;
+        display: none;
+      }
+      #T-logo{
+        width: 30%;
+        position:absolute;
+        left: 0;
+      
+      }
+      #T-car{
+        margin-top: 5rem;
+       }
+      #T-Airplan{
+        width: 20%;
+        position:absolute;
+        animation: fly  5s ease-in infinite;
+        filter: drop-shadow(-25px 50px 5px rgba(0, 0, 0, 0.473));
+
+
+      }
+      .container:hover{
+           transform: scale(1.05);
+           transition:ease 0.2s;
+           box-shadow:5px 5px 5px black; 
+      }
+      .main-branches{
+        background-color:whitesmoke;
+        height:55rem;
+        padding-top:20px;
+      }
+      @media (max-width:830px) {
+        .main-branches{
+          height: 50rem;
+        }
+        
+      }
+      @media (max-width:440px) {
+        .main-branches{
+          height: 110rem;
+        }
+        
+      }
+      .branch-hd{
+        position: relative;
+        margin-top: 4.5rem;
+        color:red;
+      }
+      .branches{
+        margin-top:3rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .branch-child{
+      
+        text-align: center;
+      }
+      .branch-child img{
+        height:15rem;
+        
+      }
+      .branch-child:hover{
+         transition: ease 0.05s;
+         transform:scale(1.02);
+        
+      }
+      .branch-child img{
+        width: 100%;
+        border-radius:10px;
+        box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.561);
+      }
+      @media (max-width:780px) {
+        .branches{
+        grid-template-columns: repeat(2, 1fr);
+      }
+     
+    }
+    @media (max-width:440px) {
+        .branches{
+        grid-template-columns: repeat(1, 1fr);
+       
+      }
+    }
+      .branch-child img{
+        width:90%;
+      }
+      .b-search-box{
+        display: grid;
+        grid-template-columns:repeat(2,1fr);
+        height: 170vh;
+        margin-top: 3rem;
+        gap:3rem;
+    
+      }
+      @media (max-width:780px) {
+        .b-search-box{
+       height:120vh;
+      
+        
+
+      }
+    }
+    .b-img{
+     margin-left: 5rem;
+     filter: drop-shadow(-15px 5px 1px rgba(0, 0, 0, 0.455));
+    }
+    .b-img img{
+      width: 50%;
+      margin-left:5rem;
+      background-position:center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    /* .b-img{
+      
+    } */
+    .b-search{
+      height: 20rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  
+    }
+    .b-search input{
+    border-radius: 30px;
+      width:70%;
+      border: 2px solid black;
+      cursor: pointer;
+    }
+    #srch:hover{
+      transition: ease 0.02s;
+      transform: scale(1.02);
+      box-shadow:-3px 3px 1px black;
+    }
+    #srch-btn:active{
+      transition: ease 0.02s;
+      transform: scale(1.03);
+      box-shadow:3px 3px 2px black ;
+    }
+    .b-form{
+      width: 90%;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .b-label{
+      font-size: 2.1rem;
+      cursor: pointer;
+    }
+    #srch-btn{
+      background-color: #218838;
+      width: 30%;
+      color: black;
+      font-weight: bold;
+    }
+    
+    .cont-us{
+      background-color:whitesmoke;
+      height:100vh;
+      padding-top:5.5rem;
+    }
+    .cont-grid{
+      display: grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:10px;
+    }
+   
+    .cont-h{
+      color:red;
+      font-weight:bold;
+      font-size:2.5rem;
+      text-shadow: 2px 2px 2px black;
+    }
+    .cont-us-grid{
+      display:grid;
+      grid-template-columns: repeat(2 ,1fr);
+      gap:10px;
+    }
+    .cont-logo-box{
+      
+      margin-top:3rem;
+      display: flex;
+      justify-content:center;
+    }
+    .cont-logo{
+     
+      padding-top:5rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    .boy-img{
+     
+      filter:drop-shadow(5px 5px 1px rgba(5, 5, 5, 0.445));
+    }
+    .cont-logos{
+     
+      height: 4rem;
+      width: 4rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      margin-left: 30px;
+     
+    }
+  
+    #cont-logos-1{
+      border-radius: 50%;
+      width: 100%;
+      box-shadow:3px 3px 3px rgb(0, 0, 0);
+    }
+  
+    #cont-logos-2{
+      
+      border-radius: 50%;
+      width: 100%;
+      box-shadow:2px 2px 3px gray;
+    }
+    #cont-logos-3{
+    border-radius: 50%;
+    width: 100%;
+    box-shadow:3px 2px 2px rgb(41, 39, 39);
+  }
+
+    .cont-email{
+      height: 3rem;
+      padding-top:5rem;
+     display: flex;
+     justify-content: center;
+     height:35rem;
+    }
+    #cont-form{
+      width: 50%;
+      height:18rem;
+      background-color: rgba(158, 140, 140, 0.185);
+      border-radius: 20px;
+      padding:5rem;
+    }
+    #cont-form input{
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .footer{
+      position: relative;
+      width: 100%;
+      bottom: 0;
+      height:5rem;
+      background-color: rgba(255, 0, 0, 0.859);
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 10px;
+      color:white;
+    }
+    .footer div{
+      display: flex;
+      justify-content:center;
+      align-items: center;
+    }
+    @media (max-width:780px) {
+        .footer{
+          grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width:440px) {
+        .footer{
+          grid-template-columns: repeat(1, 1fr);
+          height:10rem;
+        }
+    }
+
+    </style>
+  </head>
+    <nav class="navbar">
+      <h1 class="logo"><span style="color: red;">M</span>ake <span style="color: red;">T</span>rip</h1>
+      <ul class="manu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#place">Places</a></li>
+        <li><a href="#ticket">Tickets</a></li>
+        <li><a href="#branch">Branches</a></li>
+        <li><a href="#contect-us-p">Contect Us</a></li>
+      </ul>
+    </nav>
+    <h1 id="home"></h1>
+    <div class="Home-img"></div>
+
+    <div class="big-card-containar" id="place">
+      <h1 style="color:red; font-size: 2.5rem; margin-top: 5rem">
+        Popular Destination
+      </h1>
+      </div>
+      <div class="card-containar">
+        <div class="card-element" data-aos="fade-up-right">
+          <img class="card-img" src="cities6.jpg" alt="" />
+          <h2>London</h2>
+          <div class="review"><img src="review.png" class="img-review" /></div>
+          <p class="card-p">
+            London is the capital city of the United Kingdom. It is the U.K.'s
+            largest metropolis and its economic, transportation, and cultural
+            centre.
+          </p>
+        </div>
+        <div class="card-element" data-aos="fade-up">
+          <img class="card-img" src="cities1.jpg" alt="" />
+          <h2>Paris</h2>
+          <div class="review">
+            <img src="review.png" class="img-review" alt="" />
+          </div>
+          <p class="card-p">
+            The capital of France, Paris is known for its beauty, art, fashion,
+            and food. Nicknamed the "City of Light", Paris is a major center of
+            finance, diplomacy, and commerce.
+          </p>
+        </div>
+        <div class="card-element" data-aos="fade-left">
+          <img class="card-img" src="cities3.jpg" alt="" />
+          <h2>Japan</h2>
+          <div class="review">
+            <img src="review.png" class="img-review" alt="" />
+          </div>
+          <p class="card-p">
+            Japanese words have been incorporated into the English language
+            since the early 19th century, with a steady stream of loanwords
+            beginning in the late 19th century.
+          </p>
+        </div>
+      <!-- <div class="card-containar-1"> -->
+        <div class="card-element" data-aos="fade-up-right">
+          <img class="card-img" src="cities5.jpg" alt="" />
+          <h2>Russia</h2>
+          <div class="review">
+            <img src="review.png" class="img-review" alt="" />
+          </div>
+          <p class="card-p">
+            Russia, the largest country in the world, occupies one-tenth of all
+            the land on Earth. The Russian landscape varies from desert to
+            frozen coastline, tall mountains to giant marshes.
+          </p>
+        </div>
+        <div class="card-element" data-aos="fade-up">
+          <img class="card-img" src="cities4.jpg" alt="" />
+          <h2>USA</h2>
+          <div class="review">
+            <img src="review.png" class="img-review" alt="" />
+          </div>
+          <p class="card-p">
+            The United States of America (USA or U.S.A.), commonly known as the
+            United States (US or U.S.) or America, is a country primarily
+            located in North America. It is a federal union of 50 states.
+          </p>
+        </div>
+        <div class="card-element" data-aos="fade-left">
+          <img class="card-img" src="cities2.jpg" alt="" />
+          <h2>Australia</h2>
+          <div class="review">
+            <img src="review.png" class="img-review" alt="" />
+          </div>
+          <p class="card-p">
+            Australia is the only country in the world that covers an entire
+            continent. It is one of the largest countries on Earth. Although it
+            is rich in natural resources and has a lot of fertile land,
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ticket-box" id="ticket">
+      <br /><br />
+      <h1 class="T-headline">Book your Ticket</h1>
+      <img id="T-car" src="car-40241_1280.png" alt="" />
+      <img id="T-logo" src="Travellogo2.png" alt="">
+
+      <div class="T-containar">
+        <div class="container">
+          <h1>Ticket Booking</h1>
+          <form  data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine" id="ticketForm">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              required
+            />
+
+            <label for="members">Number of Members:</label>
+            <input
+              type="number"
+              id="members"
+              placeholder="Enter number of members"
+              required
+            />
+
+            <label for="budget">Select Budget:</label>
+            <select id="budget" required>
+              <option value="">Select Budget</option>
+              <option value="50k">₹50,000</option>
+              <option value="100k">₹100,000</option>
+              <option value="150k">₹150,000</option>
+            </select>
+            <a href="https://wa.me/+918856988361">
+            <button type="submit">Book Ticket</button>
+          </a>
+          </form>
+
+          <div class="confirmation" id="confirmationMessage">
+            <span id="confirmName"></span>
+            <span id="confirmMembers"></span>
+             <span id="confirmBudget"></span>
+          </div>
+        </div>
+      </div>
+    <marquee style="height:200px;" scrollamount="30" direction="right"><img id="T-Airplan" src="Airplan.png" alt=""></marquee>
+    </div>
+    <!--Ticklet-box closed !-->
+  
+
+  <div class="main-branches" id="branch">  <!--main-branches Open !--->
+          <h1 class="branch-hd">Branches</h1>
+    <div class="branches">     
+        <div class="branch-child" data-aos="zoom-out-up"><a target="_blank" href="https://www.google.com/search?q=bandra+west&rlz=1C1GCEU_enIN1125IN1125&oq=bandra+west&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQLhixAxiABDIHCAIQABiABDINCAMQLhiDARixAxiABDIHCAQQABiABDIHCAUQABiABDINCAYQABiDARixAxiABDIQCAcQLhivARjHARiABBiOBTIHCAgQABiABDIHCAkQABiABNIBCDY0NjNqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8"><img src="branche2.jpg"></a></div>
+        <div class="branch-child" data-aos="zoom-out-up"><a target="_blank" href="https://www.google.com/search?q=naigaon&sca_esv=6ac826d67940f619&rlz=1C1GCEU_enIN1125IN1125&ei=r1gaZ9e0EeKm2roP8_rcwAM&gs_ssp=eJzj4tTP1TcwMTRLKjNg9GLPS8xMT8zPAwA30QXh&oq=&gs_lp=Egxnd3Mtd2l6LXNlcnAiACoCCAAyFBAuGIAEGJECGLQCGIoFGOoC2AECMhQQABiABBiRAhi0AhiKBRjqAtgBAjIUEC4YgAQYkQIYtAIYigUY6gLYAQIyFBAuGIAEGJECGLQCGIoFGOoC2AECMhQQLhiABBiRAhi0AhiKBRjqAtgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAjIWEC4YAxi0AhjlAhjqAhiMAxiPAdgBAjIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAkijOVDgHFiZInACeACQAQSYAaYBoAGZBaoBAzAuNbgBAcgBAPgBAZgCA6AC0QGoAgrCAgoQABiABBiwAxgKwgIZEC4YgAQYsAMYxwEYyAMYChiOBRivAdgBAcICExAuGIAEGLADGLEDGMgDGArYAQHCAhAQLhiABBiwAxjIAxgK2AEBwgIWEC4YgAQYsAMYxwEYyAMYChivAdgBAcICDhAuGIAEGJECGLEDGIoFwgILEAAYgAQYkQIYigXCAhAQLhiABBjHARgKGI4FGK8BwgIHEAAYgAQYCsICBxAuGIAEGArCAh0QLhiABBiRAhixAxiKBRiXBRjcBBjeBBjgBNgBAZgDCogGAZAGFLoGBggBEAEYCLoGBAgCGAeSBwMyLjGgB4Fg&sclient=gws-wiz-serp"> <img src="branches3.jpg" alt=""></a></div>
+        <div class="branch-child" data-aos="zoom-out-up"> <a target="_blank" href="https://www.google.com/search?q=virar&sca_esv=6ac826d67940f619&rlz=1C1GCEU_enIN1125IN1125&ei=r1gaZ9e0EeKm2roP8_rcwAM&ved=0ahUKEwiXyOKdnKeJAxVik1YBHXM9FzgQ4dUDCBA&uact=5&oq=virar&gs_lp=Egxnd3Mtd2l6LXNlcnAiBXZpcmFyMhQQLhiABBixAxjHARjJAxiOBRivATIFEAAYgAQyDhAuGIAEGJECGLEDGIoFMgsQABiABBiRAhiKBTIFEAAYgAQyDhAuGIAEGMcBGI4FGK8BMggQABiABBixAzIFEAAYgAQyBRAAGIAEMgUQLhiABDIjEC4YgAQYsQMYxwEYyQMYjgUYrwEYlwUY3AQY3gQY4ATYAQFIrdwIUJbGCFiH1whwBXgAkAEDmAG4AaABywuqAQQwLjEwuAEDyAEA-AEBmAILoALVCKgCFMICChAAGIAEGLADGArCAhkQLhiABBiwAxjHARjIAxgKGI4FGK8B2AEBwgITEC4YgAQYsAMYsQMYyAMYCtgBAcICEBAuGIAEGLADGMgDGArYAQHCAhYQLhiABBiwAxjHARjIAxgKGK8B2AEBwgIQEC4YgAQYxwEYChiOBRivAcICBxAAGIAEGArCAgcQLhiABBgKwgIdEC4YgAQYkQIYsQMYigUYlwUY3AQY3gQY4ATYAQHCAh0QLhiABBi0AhjUAxjlAhi3AxiKBRjqAhiKA9gBAsICHRAAGIAEGLQCGNQDGOUCGLcDGIoFGOoCGIoD2AECwgIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAcICFhAuGAMYtAIY5QIY6gIYjAMYjwHYAQHCAhEQLhiABBixAxiDARjUAhiKBcICCxAAGIAEGLEDGIMBwgILEC4YgAQYsQMY5QTCAggQLhiABBixA8ICCxAuGIAEGNEDGMcBwgIOEC4YgAQYsQMY0QMYxwHCAgsQLhiABBiRAhiKBcICDhAAGIAEGLEDGIMBGIoFwgIaEC4YgAQYkQIYigUYlwUY3AQY3gQY4ATYAQHCAhcQLhiABBixAxiXBRjcBBjeBBjfBNgBAZgDDIgGAZAGFLoGBggBEAEYCLoGBAgCGAeSBwM1LjagB62-AQ&sclient=gws-wiz-serp"> <img src="branches4.jpg" alt=""></a></div>
+        <div class="branch-child" data-aos="zoom-out-up"> <a target="_blank" href="https://www.google.com/search?q=Kandivali&sca_esv=6ac826d67940f619&rlz=1C1GCEU_enIN1125IN1125&ei=wVkaZ_-yM4_g2roPzpbeMQ&ved=0ahUKEwi_l9ignaeJAxUPsFYBHU6LNwYQ4dUDCBA&uact=5&oq=Kandivali&gs_lp=Egxnd3Mtd2l6LXNlcnAiCUthbmRpdmFsaTIKEAAYgAQYQxiKBTINEC4YgAQYsQMYQxiKBTIKEAAYgAQYQxiKBTIFEAAYgAQyDhAuGIAEGMcBGI4FGK8BMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigUyBRAAGIAEMgUQLhiABEjdPFCQDVimNnACeAGQAQOYAbgBoAG6DaoBBDAuMTO4AQPIAQD4AQGYAgygAtALqAIUwgIKEAAYsAMY1gQYR8ICDRAAGIAEGLADGEMYigXCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIcEC4YgAQYsAMYQxjHARjIAxiKBRiOBRivAdgBAcICExAuGIAEGEMYxwEYigUYjgUYrwHCAggQLhiABBixA8ICChAuGIAEGEMYigXCAggQABiABBixA8ICDhAAGIAEGLEDGIMBGIoFwgIcEC4YgAQYsQMYQxiKBRiXBRjcBBjeBBjgBNgBAcICExAuGIAEGEMYtAIYigUY6gLYAQLCAhMQABiABBhDGLQCGIoFGOoC2AECwgIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAcICFhAuGAMYtAIY5QIY6gIYjAMYjwHYAQHCAgsQABiABBixAxiDAcICCxAuGIAEGNEDGMcBwgIZEC4YgAQYQxiKBRiXBRjcBBjeBBjfBNgBAcICGRAuGIAEGEMYigUYlwUY3AQY3gQY4ATYAQHCAgsQLhiABBixAxiDAZgDGYgGAZAGFLoGBggBEAEYCLoGBAgCGAeSBwQyLjEwoAeR5wE&sclient=gws-wiz-serp"> <img src="branches5.jpg" alt=""></a></div>
+    </div> <!--- Branches-Box closed !-->
+
+    <div class="b-search-box">
+      <div class="b-img"><img src="travelman.png" alt=""></div>
+           <div class="b-search">
+           <form class="b-form" action="">
+             <label class="b-label" for="search">Search Branch:</label>
+             <input type="text" name="srch" id="srch"  placeholder="Enter branch name" required />
+             <input type="button" value="Search" id="srch-btn">
+          </div>
+          </div>
+        </form>
+          
+    </div><!--main-branches-Box Closed !--->
+
+        <div id="contect-us-p" class="cont-us">
+           <h1 class="cont-h">Contect <span style="color:green;">Us</span></h1>
+           <div class="cont-us-grid">
+              <div class="cont-logo">
+                <h2 style="text-align: center;font-size:2rem;"><span style="color: red;text-shadow: 1px 1px black;">Here</span> to <span style="color: green;text-shadow: 1px 1px white;">Contect</span></h2><br>
+                <div class="boy-img"><img src="callingboy.png" alt=""></div>
+                <div class="cont-logo-box">
+                <div class="cont-logos"><a target="_zblank" href="https://www.instagram.com/dhiraj_.21_/profilecard/?igsh=MTFkNTl4d2U2dTFncQ=="><img id="cont-logos-1" src="insta1-removebg-preview.png" alt=""></a></div>
+                <div class="cont-logos"><a href="https://api.whatsapp.com/send?phone=8856988361&text=Member%20joined%20your%20website.%20Total%20members%3A%2023"><img id="cont-logos-1" src="calling.png" alt=""></a></div>
+                <div class="cont-logos"> <a target="_blank" href="https://www.facebook.com/profile.php?id=61556014724232 "><img id="cont-logos-1" src="facbook.png" alt=""></a></div>
+                <div class="cont-logos"><a target="_blank" href="https://x.com/DhirajGupt8856?t=q-yGGoyt3FKEM6hBBgTohw&s=09"><img id="cont-logos-1" src="twitter.png" alt=""></a></div>
+              </div>
+              </div>
+              <div class="cont-email">
+                <form action=" " id="cont-form">
+                  <label for="name" id="cont-label">Username:</label>
+                  <input type="text" id="cont-name" placeholder="Enter your name..."><br>
+                  <label for="pass" id="cont-label-pass">Password:</label>
+                  <input type="text" id="cont-pass" ><br>
+                  <input type="button" id="cont-btn" value="Sign-Up">
+                </form>
+              </div>
+           </div>
+        </div>
+           <footer class="footer">
+            <div><h3>Created By Dhiraj&#8482;</h3></div>
+            <div><h3>&#169;Copy Write</h3></div>
+            <div><h3>Phone No: 8856988361</h3></div>
+            <div><h3>Email Id: dhirajgupta@361gmail.com</h3></div>
+           </footer>
+        </div>
+    
+    <script>
+      document
+        .getElementById("ticketForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get values from the form
+          const name = document.getElementById("name").value;
+          const members = document.getElementById("members").value;
+          const budget = document.getElementById("budget").value;
+
+          // Set confirmation details
+          document.getElementById("confirmName").textContent = name;
+          document.getElementById("confirmMembers").textContent = members;
+          document.getElementById("confirmBudget").textContent = budget;
+
+          // Show confirmation message
+          document.getElementById("confirmationMessage").style.display=alert("Thank you for  booking your ticket"); 
+          
+          const phoneNumber = "8856988361";
+    const message = encodeURIComponent(`Member joined your website. Total members: ${members}`);
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, "_blank");
+          
+          // Clear form after submission
+          document.getElementById("ticketForm").reset();
+        });
+      // --Search fuction-- // 
+      document.getElementById("srch-btn").addEventListener('click',()=>{
+        var search = document.getElementById("srch").value;
+       
+        if(search){
+          var searchurl = 'https://www.google.com/search?q=' +encodeURIComponent(search)
+         window.open(searchurl, ' _blank');
+        }
+         else{
+          alert("Please enter a search term");
+         }
+      });
+
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
