@@ -27,13 +27,14 @@
         border-bottom: 1px solid black;
         border-top: 1px solid black;
         height: 50px;
+        /* width: 100%; */
         padding: 10px 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         position: sticky;
         top: 0;
-        z-index: 2;
+        z-index: 5;
       }
       @media (max-width:950px) {
         li {
@@ -79,9 +80,7 @@
         font-size: 2.3rem;
       }
       .Home-img {
-        margin-top: -5rem;
-       
-        width: 100%;
+        margin-top: -5rem;   
         height: 55.25rem;
         animation: image 15.5s ease-in infinite;
         background-repeat: no-repeat;
@@ -96,6 +95,7 @@
       @media (max-width:440px){
         .Home-img{
           height: 20rem;
+          /* width:100%; */
         }
       }
 
@@ -138,27 +138,15 @@
       }
      
       .card-containar{
-      width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
+        height: auto;
+        display:flex;
+        flex-wrap: wrap;
         gap:3rem;
         padding:auto;
         justify-content:center;
         align-items: center;
       }
-      @media (max-width:780px){
-        .card-containar{
-          grid-template-columns: repeat(2,1fr);
-        }
-      }
-      @media (max-width:440px){
-        .card-containar{
-          grid-template-columns: repeat(1,1fr);
-          justify-content: center;
-          align-items: center;
-        }
-      }
-
+      
       .card-element {
         margin: 3rem;
         display: flex;
@@ -168,9 +156,19 @@
         width: 17rem;
         border: 1px solid rgb(146, 137, 137);
         border-radius: 10px;
-
         padding: 10px;
         cursor: pointer;
+      }
+      @media (max-width:780px){
+        .card-element{
+          width:15rem;
+        }
+      }
+      @media (max-width:440px){
+        .card-element{
+          width:200px;
+          margin:1rem;
+        }
       }
       .card-element:hover {
         transition: 0.3s ease-in-out;
@@ -234,11 +232,16 @@
         filter: drop-shadow(5px 5px 2px black);
       }
       .container {
-        width: 390px;
+        width: 400px;
         margin: 50px auto;
         background-color:rgb(168, 159, 159);
         padding: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .container:hover{
+           transform: scale(1.02);
+           transition:ease 0.2s;
+           box-shadow:5px 5px 5px black; 
       }
       @media (max-width:780px) {
         .container{
@@ -247,7 +250,7 @@
       }
       @media (max-width:440px) {
         .container{
-          width: 300px;
+          width:75%;
           height:400px;
           border-radius: 10px;
         }
@@ -332,19 +335,15 @@
           width: 35%;
         }
       }
-      .container:hover{
-           transform: scale(1.05);
-           transition:ease 0.2s;
-           box-shadow:5px 5px 5px black; 
-      }
+      
       .main-branches{
         background-color:whitesmoke;
         height:55rem;
         padding-top:20px;
       }
-      @media (max-width:830px) {
+      @media (max-width:780px) {
         .main-branches{
-          height: 50rem;
+          height:220vh;
         }
         
       }
@@ -360,28 +359,11 @@
         color:red;
       }
       .branches{
+        padding:0 2rem;
         margin-top:3rem;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
-      }
-      .branch-child{
-      
-        text-align: center;
-      }
-      .branch-child img{
-        height:15rem;
-        
-      }
-      .branch-child:hover{
-         transition: ease 0.05s;
-         transform:scale(1.02);
-        
-      }
-      .branch-child img{
-        width: 100%;
-        border-radius:10px;
-        box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.561);
       }
       @media (max-width:780px) {
         .branches{
@@ -395,25 +377,46 @@
        
       }
     }
+      .branch-child{
+      
+        text-align: center;
+      }
+      .branch-child img{
+        height:15rem;
+        
+      }
+      /* .branch-child:hover{
+         transition: ease 0.05s;
+         transform:scale(1.02);
+        
+      } */
+      .branch-child img{
+        width: 100%;
+        border-radius:10px;
+        box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.561);
+      }
+      
       .branch-child img{
         width:90%;
       }
       .b-search-box{
         display: grid;
         grid-template-columns:repeat(2,1fr);
-        height: 30vh;
         margin-top: 3rem;
         gap:3rem;
       }
-      @media (max-width:750px) {
+      @media (max-width:780px) {
         .b-search-box{
           grid-template-columns:repeat(1,1fr);
         }
       }
       
-    .b-img{
-     margin-left: 5rem;
-     filter: drop-shadow(-15px 5px 1px rgba(0, 0, 0, 0.455));
+      .map-img{
+     text-align: center;
+    }
+    .map-img img{
+      filter: drop-shadow(-15px 5px 1px rgba(0, 0, 0, 0.455));
+      height: 100%;
     }
     .b-img img{
       width: 50%;
@@ -474,12 +477,12 @@
     }
     @media (max-width:780px) {
         .cont-us{
-          height: 150vh;
+          height: 230vh;
         }
     }
     @media (max-width:440px) {
         .cont-us{
-          height: 160vh;
+          height: 230vh;
         }
     }
     
@@ -491,6 +494,7 @@
     }
     .cont-us-grid{
       /* border: 2px solid black; */
+      width: 100% ;
       display:grid;
       grid-template-columns: repeat(2 ,1fr);
       gap:10px;
@@ -536,7 +540,7 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      margin-left: 30px;
+      margin-left:20px;
      
     }
   
@@ -588,6 +592,7 @@
       color:white;
     }
     .footer div{
+      width: 100%;
       display: flex;
       justify-content:center;
       align-items: center;
@@ -607,6 +612,7 @@
     .toggle{
             position:fixed;
             top:53px;
+            margin-top:1rem;
             z-index: 5;
             display: flex;
             flex-direction: column;
@@ -687,7 +693,7 @@
     <div class="Home-img"></div>
 
     <div class="big-card-containar" id="place">
-      <h1 style="color:red; font-size: 2.5rem; margin-top: 5rem">
+      <h1 style="color:red; font-size: 2.5rem; margin-top: 5rem;padding:0 2rem;">
         Popular Destination
       </h1>
       </div>
@@ -813,7 +819,7 @@
           </div>
         </div>
       </div>
-    <marquee style="height:200px;" scrollamount="30" direction="right"><img id="T-Airplan" src="Airplan.png" alt=""></marquee>
+    <!-- <marquee style="height:200px;width: 100%;overflow: hidden;" scrollamount="30" direction="right"><img id="T-Airplan" src="Airplan.png" alt=""></marquee> -->
     </div>
     <!--Ticklet-box closed !-->
   
@@ -828,7 +834,7 @@
     </div> <!--- Branches-Box closed !-->
 
     <div class="b-search-box">
-      <div class="b-img"><img src="travelman.png" alt=""></div>
+      <div class="map-img"><img src="maps.png" alt=""></div>
            <div class="b-search">
            <form class="b-form" action="">
              <label class="b-label" for="search">Search Branch:</label>
@@ -845,7 +851,7 @@
            <div class="cont-us-grid">
               <div class="cont-logo">
                 <h2 style="text-align: center;font-size:2rem;"><span style="color: red;text-shadow: 1px 1px black;">Here</span> to <span style="color: green;text-shadow: 1px 1px white;">Contect</span></h2><br>
-                <div class="boy-img"><img src="callingboy.png" alt=""></div>
+                <div class="boy-img"><img src="callperson.png" alt=""></div>
                 <div class="cont-logo-box">
                 <div class="cont-logos"><a target="_zblank" href="https://www.instagram.com/dhiraj.21_/profilecard/?igsh=MTFkNTl4d2U2dTFncQ=="><img id="cont-logos-1" src="insta1-removebg-preview.png" alt=""></a></div>
                 <div class="cont-logos"><a href="https://api.whatsapp.com/send?phone=8856988361&text=Member%20joined%20your%20website.%20Total%20members%3A%2023"><img id="cont-logos-1" src="calling.png" alt=""></a></div>
