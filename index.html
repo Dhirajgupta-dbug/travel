@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WWW.Dhiraj/Travel.com</title>
+    <title>Responsive Navbar and Carousel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -66,8 +66,7 @@
       }
       a {
         text-decoration: none;
-        /*color:rgb(165, 0, 0);*/
-        color:#81BFDA;
+        color:rgb(165, 0, 0);
         font-size: 20px;
         font-weight: bold;
       }
@@ -212,7 +211,7 @@
         height: 49rem;
       }
       .T-headline {
-        color:#81BFDA ;
+        color: red;
         font-size: 2.3rem;
         text-align: center;
         margin-top: 5rem;
@@ -483,12 +482,12 @@
     }
     @media (max-width:440px) {
         .cont-us{
-          height: 225vh;
+          height: 230vh;
         }
     }
     
     .cont-h{
-      color:  #81BFDA ; 
+      color:red;
       font-weight:bold;
       font-size:2.5rem;
       text-shadow: 2px 2px 2px black;
@@ -612,14 +611,14 @@
 
     .toggle{
             position:fixed;
-            top:55px;
+            top:53px;
             margin-top:1rem;
             z-index: 5;
             display: flex;
             flex-direction: column;
             text-align: center;
             align-items: center;
-            margin-top: 25px;
+            margin-top: 20px;
             width:100%;
             height:0px;
             overflow: hidden;
@@ -636,7 +635,7 @@
    #toggle-btn{
     text-align: center;
     padding:10px;
-    color:#81BFDA  ;
+    color:red;
     text-shadow: 2px 2px 3px white;
     background-color: white;
     width:15rem;
@@ -669,7 +668,7 @@
     </style>
   </head>
     <nav class="navbar">
-      <h1 class="logo"><span style="color:#81BFDA ;">M</span>ake <span style="color: red;">T</span>rip</h1>
+      <h1 class="logo"><span style="color: red;">M</span>ake <span style="color: red;">T</span>rip</h1>
       <ul class="manu">
         <li><a href="#home">Home</a></li>
         <li><a href="#place">Places</a></li>
@@ -694,7 +693,7 @@
     <div class="Home-img"></div>
 
     <div class="big-card-containar" id="place">
-      <h1 style="color: #81BFDA ; font-size: 2.5rem; margin-top: 5rem;padding:0 2rem;">
+      <h1 style="color:red; font-size: 2.5rem; margin-top: 5rem;padding:0 2rem;">
         Popular Destination
       </h1>
       </div>
@@ -865,7 +864,7 @@
                   <label for="name" id="cont-label">Username:</label>
                   <input type="text" id="cont-name" placeholder="Enter your name..."><br>
                   <label for="pass" id="cont-label-pass">Password:</label>
-                  <input type="text" id="cont-pass" ><br>
+                  <input type="password" id="cont-pass" placeholder="Enter Strong Password !" ><br>
                   <input type="button" id="cont-btn" value="Sign-Up">
                 </form>
               </div>
